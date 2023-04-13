@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PLAYFAIR CIPHER</title>
+    <link rel="stylesheet" type="text/css" href="../css/table.css">
+    
+    <script src="/javascript/playfair.js"></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="jumbotron">
+
+
+            <form id="myForm" method="post">
+            <table class="desigtable" cellpadding="10">
+
+            <tr>
+                <td>
+                    <label for="keyword">Keyword: </label>
+                </td>
+                <td>
+                    <input type="text" name="keyword" id="keyword" size="15" onchange="Table.value=makeTableau(keyword.value)">
+                </td>
+            </tr>
+
+            <tr>
+              <td><label for="Table">Table: </label></td>
+              <td><textarea style="font-family:monospace; font-size:16px;" rows="6" name="Table" cols="10" readonly></textarea></td>
+            </tr>
+
+            <tr>
+              <td><label for="message">Plaintext: </label></td>
+              <td><textarea rows="4" cols="25" name="plainText"></textarea></td>
+              <td><label for="message">Ciphertext: </label></td>
+              <td><textarea rows="4" cols="25" name="cipherText"></textarea></td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td>
+                    <input type="button" value="Encrypt!" onclick="plainDigraph.innerHTML=encrypt(plainText.value,keyword.value)"/>
+                </td>
+                <td></td>
+                <td>
+                    <input type="button" value="Decrypt!" onclick="cipherDigraph.innerHTML=decrypt(cipherText.value,keyword.value)"/>
+                </td>
+            </tr>
+
+            <tr>
+              <td><label for="plainDigraphLabel">Plaintext Digraph: </label></td>
+              <td>
+                <div id="plainDigraph" style="font-family:monospace"></div>
+              </td>
+              <td><label for="cipherDigraphLabel">Ciphertext Digraph: </label></td>
+              <td>
+                <div id="cipherDigraph" style="font-family:monospace"></div>
+              </td>
+            </tr>
+            <tr>
+                <td><label for="resultantMsg">Ciphertext: </label></td>
+                <td>
+                  <div id="ciphertext" style="font-family:monospace"></div>
+                </td>
+                <td><label for="resultantMsg">Plaintext: </label></td>
+                <td>
+                  <div id="plaintext" style="font-family:monospace"></div>
+                </td>
+            </tr>
+            </table>
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>
