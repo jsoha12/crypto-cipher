@@ -1,6 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 .container{
-    background-color: #ffffff;
     font-family: 'Poppins', sans-serif;
     width: 430px;
     height: 520px;
@@ -8,8 +7,13 @@
     transform: translate(-50%,-50%);
     left: 50%;
     top: 50%;
+}
 
-    
+
+body {
+  background-color: #f2f2f2;
+  font-family: 'Poppins', sans-serif;
+  font-size: 16px;
 }
 
 	
@@ -22,8 +26,6 @@ a.seltext{
 
 }
 
-
-/* CSS */
 .ci-btn {
   appearance: button;
   backface-visibility: hidden;
@@ -38,7 +40,7 @@ a.seltext{
   font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
   font-size: 100%;
   height: 44px;
-  line-height: 1.15;
+
   margin: 12px 0 0;
   outline: none;
   overflow: hidden;
@@ -62,3 +64,29 @@ a.seltext{
 .ci-btn:focus {
   box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
 }
+
+@media (max-width: 760px) {.container {
+  width: 100%;
+  padding:  10px;
+  margin: 10px 0;
+}
+h1 {
+  font-size: 30px;
+}
+
+.btn-2 {
+  font-size: 80%;
+}
+
+textarea {
+  padding: 10px;
+}
+.ci-btn {
+  width: 90%;
+  border-radius: 5px;
+  margin: 0 auto;
+  display: block;
+  margin-bottom: 1px;
+}
+}
+
