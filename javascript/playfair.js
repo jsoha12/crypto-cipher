@@ -1,44 +1,28 @@
 var myVar = setInterval(makeTableau(), 50);
 function makeTableau(keyword) {
+  // Remove duplicate letters from the keyword and convert to uppercase
+  keyword = Array.from(new Set(keyword.toUpperCase())).join('');
 
-  alphabets = "ABCDEFGHIKLMNOPQRSTUVWXYZ";
-  keyword = keyword.toUpperCase();
-  keyword = keyword.replace(/ /g, '');
-  keyword = keyword.replace(/J/g, 'I');
-  keyword = keyword.replace(/[\W\d]/g, '');
+  // Create the initial tableau with the keyword in the top row
+  let tableau = keyword;
 
-  str = keyword + alphabets;
-  for (i = 0; i < alphabets.length; i++) {
-    let = str.charAt(i);
-    pos = str.indexOf(let, i+1);
-
-    while(pos > -1) {
-      str = str.substring(0, pos) + str.substring(pos+1, str.length);
-      pos = str.indexOf(let, i+1);
-    }
+  // Add the remaining letters of the alphabet to the tableau
+  for (let i = 65; i <= 90; i++) {
+    const letter = String.fromCharCode(i);
+    if (letter === 'J') continue; // Skip J since it's treated as I
+    if (!keyword.includes(letter)) tableau += letter;
   }
 
-
-  row = new Array();
-  for (i = 0; i < 5; i++) {
-    row[i] = "";
+  // Create a 5x5 grid for the tableau
+  let grid = '';
+  for (let i = 0; i < 25; i += 5) {
+    const row = tableau.slice(i, i + 5);
+    grid += row + '\n';
   }
 
-  for (i = 0; i < 5; i++) {
-    for (j = 0; j < 5; j++) {
-      row[i] += str.charAt(5*i+j) + " ";
-    }
-  }
-
-  result = "";
-
-  for (i = 0; i < 5; i++) {
-    result += row[i] + "\n";
-  }
-
-  return result;
-
+  return grid;
 }
+
 
 function encrypt(plainText,keyword) {
   alphabets = "ABCDEFGHIKLMNOPQRSTUVWXYZ";
